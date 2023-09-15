@@ -29,9 +29,21 @@ jobs:
     - name: Setup Docker
       run: docker compose up -d
       working-directory: ${{ env.WORKING_DIRECTORY }}
-    
+
+    - name: Grant execute permission to gradlew
+      run: chmod +x ./gradlew
+      working-directory: ${{ env.WORKING_DIRECTORY }}
+
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@v2.8.0
-      with:
-        arguments: build
-        build-root-directory: ${{ env.WORKING_DIRECTORY }}
+      run: ./gradlew clean --info build -x test
+      working-directory: ${{ env.WORKING_DIRECTORY }}
+
+    - name: Test with Gradle
+      run: ./gradlew test
+      working-directory: ${{ env.WORKING_DIRECTORY }}
+    
+    # - name: Build with Gradle
+    #   uses: gradle/gradle-build-action@v2.8.0
+    #   with:
+    #     arguments: build
+    #     build-root-directory: ${{ env.WORKING_DIRECTORY }}
