@@ -38,9 +38,14 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew clean build -x test
-      
-    - name: Google Java Format
-      uses: axel-op/googlejavaformat-action@v3.6.0
 
     - name: Test with Gradle
       run: ./gradlew test
+
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: axel-op/googlejavaformat-action@v3
+      with:
+        args: "--set-exit-if-changed"
