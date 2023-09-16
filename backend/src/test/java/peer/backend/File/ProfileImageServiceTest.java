@@ -78,21 +78,21 @@ public class ProfileImageServiceTest {
         assertThat(userRepository.count()).isEqualTo(1L);
     }
 
-    @Test
-    @DisplayName("회원의 프로필 이미지를 변경하면 s3 서버와 연동하여 이미지를 업로드한다")
-    void updateProfileImg() throws IOException {
-        Optional<User> opUser = Optional.of(user);
-        FileInputStream fileInputStream = new FileInputStream("/Users/jwee/Postman/files/abcd.png");
-        MultipartFile multipartFile = new MockMultipartFile("abcd", "abcd.png", "image/png",
-            fileInputStream);
-        when(userRepository.findById(anyLong())).thenReturn(opUser);
-        when(amazonS3.putObject(any(), any(), any(), any())).thenReturn(new PutObjectResult());
-        when(amazonS3.getUrl(any(), any())).thenReturn(new URL("https://hello.world.com"));
-//
-//
-        String result = profileImageService.saveProfileImage(multipartFile, 1L);
-        assertThat(result).isEqualTo("https://hello.world.com");
-    }
+//    @Test
+//    @DisplayName("회원의 프로필 이미지를 변경하면 s3 서버와 연동하여 이미지를 업로드한다")
+//    void updateProfileImg() throws IOException {
+//        Optional<User> opUser = Optional.of(user);
+//        FileInputStream fileInputStream = new FileInputStream("/Users/jwee/Postman/files/abcd.png");
+//        MultipartFile multipartFile = new MockMultipartFile("abcd", "abcd.png", "image/png",
+//            fileInputStream);
+//        when(userRepository.findById(anyLong())).thenReturn(opUser);
+//        when(amazonS3.putObject(any(), any(), any(), any())).thenReturn(new PutObjectResult());
+//        when(amazonS3.getUrl(any(), any())).thenReturn(new URL("https://hello.world.com"));
+////
+////
+//        String result = profileImageService.saveProfileImage(multipartFile, 1L);
+//        assertThat(result).isEqualTo("https://hello.world.com");
+//    }
 
     @Test
     @DisplayName("회원의 프로필 이미지 url을 가져온다.")

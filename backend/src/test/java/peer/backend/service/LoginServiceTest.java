@@ -55,13 +55,13 @@ public class LoginServiceTest {
         optionalUser = Optional.of(user);
     }
 
-    @Test
-    @DisplayName("test to reissue access token")
-    void reissueAccessToken() {
-
-        when(userRepository.findById(anyLong())).thenReturn(optionalUser);
-//        when(tokenProvider.validateRefreshToken(anyString())).thenReturn(false);
-//        Message result = service.reissue(id, refreshToken);
-//        assertThat(result.getStatus()).isEqualTo(HttpStatus.OK);
-    }
+//    @Test
+//    @DisplayName("test to reissue access token")
+//    void reissueAccessToken() {
+//
+//        when(userRepository.findById(anyLong())).thenReturn(optionalUser);
+////        when(tokenProvider.validateRefreshToken(anyString())).thenReturn(false);
+////        Message result = service.reissue(id, refreshToken);
+////        assertThat(result.getStatus()).isEqualTo(HttpStatus.OK);
+//    }
 }

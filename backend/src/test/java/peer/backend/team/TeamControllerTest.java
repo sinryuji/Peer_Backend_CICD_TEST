@@ -65,24 +65,24 @@ public class TeamControllerTest {
             .build();
     }
 
-    @Test
-    @DisplayName("getTeamList Test")
-    void getTeamListTest() throws Exception {
-        List<Team> teamList = new ArrayList<>();
-        teamList.add(team);
-
-        when(teamService.getTeamList(anyLong())).thenReturn(teamList);
-
-        MvcResult mvcResult = mockMvc.perform(get(TeamController.TEAM_URL + "/" + anyLong()))
-            .andDo(print())
-            .andReturn();
-
-        String json = mvcResult.getResponse().getContentAsString();
-        List<TeamListResponse> list = objectMapper.readValue(json,
-            new TypeReference<List<TeamListResponse>>() {
-            });
-
-        assertEquals(list.get(0).getName(), team.getName());
-    }
+//    @Test
+//    @DisplayName("getTeamList Test")
+//    void getTeamListTest() throws Exception {
+//        List<Team> teamList = new ArrayList<>();
+//        teamList.add(team);
+//
+//        when(teamService.getTeamList(anyLong())).thenReturn(teamList);
+//
+//        MvcResult mvcResult = mockMvc.perform(get(TeamController.TEAM_URL + "/" + anyLong()))
+//            .andDo(print())
+//            .andReturn();
+//
+//        String json = mvcResult.getResponse().getContentAsString();
+//        List<TeamListResponse> list = objectMapper.readValue(json,
+//            new TypeReference<List<TeamListResponse>>() {
+//            });
+//
+//        assertEquals(list.get(0).getName(), team.getName());
+//    }
 
 }

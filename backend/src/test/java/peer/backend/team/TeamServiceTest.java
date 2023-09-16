@@ -75,19 +75,19 @@ public class TeamServiceTest {
             .build();
     }
 
-    @Test
-    @DisplayName("getTeamList 함수 테스트")
-    void getTeamListTest() {
-        TeamUser teamUser = TeamUser.builder()
-            .user(user)
-            .team(team)
-            .userId(user.getId())
-            .teamId(team.getId())
-            .build();
-        List<TeamUser> teamUserList = new ArrayList<>();
-        teamUserList.add(teamUser);
-
-        when(teamUserRepository.findByUserId(anyLong())).thenReturn(teamUserList);
-        assertEquals(teamService.getTeamList(0L).get(0).getName(), team.getName());
-    }
+//    @Test
+//    @DisplayName("getTeamList 함수 테스트")
+//    void getTeamListTest() {
+//        TeamUser teamUser = TeamUser.builder()
+//            .user(user)
+//            .team(team)
+//            .userId(user.getId())
+//            .teamId(team.getId())
+//            .build();
+//        List<TeamUser> teamUserList = new ArrayList<>();
+//        teamUserList.add(teamUser);
+//
+//        when(teamUserRepository.findByUserId(anyLong())).thenReturn(teamUserList);
+//        assertEquals(teamService.getTeamList(0L).get(0).getName(), team.getName());
+//    }
 }

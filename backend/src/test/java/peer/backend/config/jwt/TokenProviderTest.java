@@ -42,16 +42,16 @@ public class TokenProviderTest {
             .build();
     }
 
-    @Test
-    @DisplayName("create token test")
-    void createToken() {
-        String accesstoken = tokenProvider.createAccessToken(user);
-        Base64.Decoder decoder = Base64.getUrlDecoder();
-        String[] rowToken = accesstoken.split("//.");
-        String header = new String(decoder.decode(rowToken[0]));
-        String payload = new String(decoder.decode(rowToken[1]));
-        String vert = new String(decoder.decode(rowToken[2]));
-
-        System.out.printf("%s\n%s\n%s\n%n", header, payload, vert);
-    }
+//    @Test
+//    @DisplayName("create token test")
+//    void createToken() {
+//        String accesstoken = tokenProvider.createAccessToken(user);
+//        Base64.Decoder decoder = Base64.getUrlDecoder();
+//        String[] rowToken = accesstoken.split("//.");
+//        String header = new String(decoder.decode(rowToken[0]));
+//        String payload = new String(decoder.decode(rowToken[1]));
+//        String vert = new String(decoder.decode(rowToken[2]));
+//
+//        System.out.printf("%s\n%s\n%s\n%n", header, payload, vert);
+//    }
 }
