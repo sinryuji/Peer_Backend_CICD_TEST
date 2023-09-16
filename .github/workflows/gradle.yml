@@ -41,3 +41,7 @@ jobs:
 
     - name: Test with Gradle
       run: ./gradlew test
+
+    - name: Google Java Format
+      uses: axel-op/googlejavaformat-action@v3.6.0
+            
